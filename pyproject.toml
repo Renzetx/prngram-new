@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "RNGram"
+version = "2.2.26"
+description = "Elegant, modern and asynchronous Telegram MTProto API framework in Python ( Fork From Pyrogram / Kurigram )"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    { name = "Renboys", email = "renboysid@gmail.com" },
+    { name = "Dan", email = "dan@pyrogram.org" },
+]
+license = { text = "LGPL-3.0-or-later" }
+dependencies = [
+    "pyaes>=1.2.0",
+    "python-socks[asyncio]>=2.4.0",
+]
+
+[project.optional-dependencies]
+fast = [
+    "tgcrypto>=1.2.2",
+    "uvloop>=0.21.0; sys_platform == 'darwin' or sys_platform == 'linux'",
+]
+qrcode = [
+    "qrcode>=5.2.2",
+]
