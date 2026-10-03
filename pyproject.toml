@@ -1,10 +1,10 @@
 [build-system]
-requires = ["setuptools>=61.0", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling>=1.26.3"]
+build-backend = "hatchling.build"
 
 [project]
 name = "RNGram"
-version = "2.2.26"
+dynamic = ["version"]
 description = "Elegant, modern and asynchronous Telegram MTProto API framework in Python ( Fork From Pyrogram / Kurigram )"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -12,7 +12,45 @@ authors = [
     { name = "Renboys", email = "renboysid@gmail.com" },
     { name = "Dan", email = "dan@pyrogram.org" },
 ]
-license = { text = "LGPL-3.0-or-later" }
+maintainers = [
+    { name = "Renboys", email = "renboysid@gmail.com" },
+]
+license = "LGPL-3.0-or-later"
+license-files = ["COPYING", "COPYING.lesser", "NOTICE"]
+keywords = [
+    "telegram",
+    "chat",
+    "messenger",
+    "mtproto",
+    "api",
+    "client",
+    "library",
+    "python",
+    "RNGram",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+    "License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: Implementation",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+    "Topic :: Internet",
+    "Topic :: Communications",
+    "Topic :: Communications :: Chat",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+]
 dependencies = [
     "pyaes>=1.2.0",
     "python-socks[asyncio]>=2.4.0",
@@ -26,3 +64,22 @@ fast = [
 qrcode = [
     "qrcode>=5.2.2",
 ]
+
+[tool.hatch.version]
+path = "pyrogram/__init__.py"
+
+[tool.hatch.build.hooks.custom]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/pyrogram",
+    "/compiler",
+    "/tests",
+]
+
+[tool.hatch.build.targets.wheel]
+ignore-vcs = true
+packages = ["pyrogram"]
