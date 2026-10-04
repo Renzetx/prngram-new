@@ -4696,6 +4696,8 @@ class Message(Object, Update):
             | types.ForceReply
             | None
         ) = None,
+        disable_web_page_preview: bool | None = None,
+        show_caption_above_media: bool | None = None,
     ) -> Message | None:
         """Shortcut for method :obj:`~pyrogram.Client.send_message` will automatically fill method attributes:
 
@@ -4789,6 +4791,8 @@ class Message(Object, Update):
             paid_message_star_count=paid_message_star_count,
             suggested_post_parameters=suggested_post_parameters,
             reply_markup=reply_markup,
+            disable_web_page_preview=disable_web_page_preview,
+            show_caption_above_media=show_caption_above_media,
         )
 
     reply_text = reply
@@ -4815,6 +4819,8 @@ class Message(Object, Update):
             | types.ForceReply
             | None
         ) = None,
+        disable_web_page_preview: bool | None = None,
+        show_caption_above_media: bool | None = None,
     ) -> Message | None:
         """Shortcut for method :obj:`~pyrogram.Client.send_message` will automatically fill method attributes:
 
@@ -4905,6 +4911,8 @@ class Message(Object, Update):
             paid_message_star_count=paid_message_star_count,
             suggested_post_parameters=suggested_post_parameters,
             reply_markup=reply_markup,
+            disable_web_page_preview=disable_web_page_preview,
+            show_caption_above_media=show_caption_above_media,
         )
 
     async def reply_photo(
@@ -8619,6 +8627,8 @@ class Message(Object, Update):
         link_preview_options: types.LinkPreviewOptions | None = None,
         reply_markup: types.InlineKeyboardMarkup | None = None,
         rich_message: types.InputRichMessage | None = None,
+        disable_web_page_preview: bool | None = None,
+        show_caption_above_media: bool | None = None,
     ) -> Message:
         """Shortcut for method :obj:`~pyrogram.Client.edit_message_text` will automatically fill method attributes:
 
@@ -8669,6 +8679,8 @@ class Message(Object, Update):
             business_connection_id=self.business_connection_id,
             reply_markup=reply_markup,
             rich_message=rich_message,
+            disable_web_page_preview=disable_web_page_preview,
+            show_caption_above_media=show_caption_above_media,
         )
 
     edit = edit_text
